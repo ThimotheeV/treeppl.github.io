@@ -82,15 +82,17 @@ Example is [Is a coin fair?](#is-a-coin-fair)
 ||  `// return posterior` |
 || `}`|
 | Use the `assume` keyword to sample form a prior distribution | `assume p ~ Beta(a, b);`  |
+| | `assume v ~ Bernoulli(prob);` | 
 | | `assume x ~ Exponential(rate);` |
 | | `assume y ~ Gamma(shape, scale);` |
 | | `assume w ~ Gaussian(mean, stdDev);` |
-| | `assume v ~ Bernoulli(prob);` | 
+| | `assume u ~ Uniform(a, b);` |
 | Use the `observe` keyword to condition the likelihood on observed data | `observe data ~ Beta(a, b);` |
+| | `observe data ~ Bernoulli(prob);` |
 | | `observe data ~ Exponential(a, b);` |
 | | `observe data ~ Gamma(shape, scale);` |
 | | `observe data ~ Gaussian(shape, scale);` |
-| | `observe data ~ Bernoulli(prob);` | 
+| | `observe data ~ Uniform(a, b);` |
 | To manipulate the likelihood directly use `weight` | `weight(lik); // lik is not on the logartihmic scale` | 
 | or `logWeight` | `logWeight(lik); // lik is on the logarithmic scale` | 
 | The posterior is the returned value of the model function | `return p; // If the likelihood was not manipulated it will be exactly the prior` |
